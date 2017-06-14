@@ -1,0 +1,7 @@
+C:\projects\CodeObfuscation\AntiDebugging\bin\Release\AntiDebugging.exe.config
+C:\projects\CodeObfuscation\AntiDebugging\bin\Release\AntiDebugging.exe
+C:\projects\CodeObfuscation\AntiDebugging\bin\Release\AntiDebugging.pdb
+C:\projects\CodeObfuscation\AntiDebugging\obj\Release\AntiDebugging.exe
+C:\projects\CodeObfuscation\AntiDebugging\obj\Release\AntiDebugging.pdb
+C:\projects\CodeObfuscation\AntiDebugging\bin\Release\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\AntiDebugging\bin\Release\PreEmptive.Attributes.xml

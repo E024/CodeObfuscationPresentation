@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE dotfuscator SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscator_v2.3.dtd">
+<dotfuscator version="2.3">
+  <input>
+    <loadpaths />
+    <asmlist>
+      <inputassembly refid="eaa964df-d3d4-466c-a4f4-72131e6be5cc">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\Telemetry\bin\Release" name="Telemetry.exe" />
+      </inputassembly>
+      <inputassembly refid="5e324881-0752-45db-968c-42ee967fd70c">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\StringObfuscation\bin\Release" name="StringObfuscation.exe" />
+      </inputassembly>
+      <inputassembly refid="8825956e-d018-4c55-8cfc-016c86f94e6a">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\MethodRenaming\bin\Release" name="MethodRenaming.exe" />
+      </inputassembly>
+      <inputassembly refid="6ca6e5b4-442b-497c-a47b-93e58f84bf55">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\ControlFlow\bin\Release" name="ControlFlow.exe" />
+      </inputassembly>
+      <inputassembly refid="2db468e7-42f2-4b54-b100-9c5d19541911">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\AntiTampering\bin\Release" name="AntiTampering.exe" />
+      </inputassembly>
+      <inputassembly refid="b95e9552-9831-4e87-90d6-f27ba2c948a8">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\AntiDebugging\bin\Release" name="AntiDebugging.exe" />
+      </inputassembly>
+      <inputassembly refid="f9d7a7ee-676d-4b27-a6a6-9367fc1e1ce8">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\RenamingMethods\bin\Release" name="RenamingMethods.exe" />
+      </inputassembly>
+      <inputassembly refid="8a3c7405-b943-4a90-9401-a4b693bdf515">
+        <option>honoroas</option>
+        <option>stripoa</option>
+        <option>library</option>
+        <option>transformxaml</option>
+        <file dir="C:\projects\CodeObfuscation\RenameMethod_Issue\bin\Debug" name="RenameMethod_Issue.exe" />
+      </inputassembly>
+    </asmlist>
+  </input>
+  <output>
+    <file dir="${configdir}\Dotfuscated" />
+  </output>
+  <renaming>
+    <option>xmlserialization</option>
+    <excludelist>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\AntiDebugging\bin\Release" name="AntiDebugging.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\AntiTampering\bin\Release" name="AntiTampering.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\ControlFlow\bin\Release" name="ControlFlow.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\MethodRenaming\bin\Release" name="MethodRenaming.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\Telemetry\bin\Release" name="Telemetry.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\StringObfuscation\bin\Release" name="StringObfuscation.exe" />
+      </assembly>
+    </excludelist>
+    <mapping>
+      <mapoutput overwrite="false">
+        <file dir="${configdir}\Dotfuscated" name="Map.xml" />
+      </mapoutput>
+    </mapping>
+    <referencerulelist>
+      <referencerule rulekey="{6655B10A-FD58-462d-8D4F-5B1316DFF0FF}" />
+      <referencerule rulekey="{7D9C8B02-2383-420f-8740-A9760394C2C1}" />
+      <referencerule rulekey="{229FD6F8-5BCC-427b-8F72-A7A413ECDF1A}" />
+      <referencerule rulekey="{2B7E7C8C-A39A-4db8-9DFC-6AFD38509061}" />
+      <referencerule rulekey="{494EA3BA-B947-44B5-BEE8-A11CC85AAF9B}" />
+      <referencerule rulekey="{89769974-93E9-4e71-8D92-BE70E855ACFC}" />
+      <referencerule rulekey="{4D81E604-A545-4631-8B6D-C3735F793F80}" />
+    </referencerulelist>
+  </renaming>
+  <controlflow level="high">
+    <excludelist>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\AntiDebugging\bin\Release" name="AntiDebugging.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\AntiTampering\bin\Release" name="AntiTampering.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\MethodRenaming\bin\Release" name="MethodRenaming.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\RenameMethod_Issue\bin\Debug" name="RenameMethod_Issue.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\RenamingMethods\bin\Release" name="RenamingMethods.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\Telemetry\bin\Release" name="Telemetry.exe" />
+      </assembly>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\StringObfuscation\bin\Release" name="StringObfuscation.exe" />
+      </assembly>
+    </excludelist>
+  </controlflow>
+  <stringencrypt>
+    <option>disable</option>
+    <includelist>
+      <assembly>
+        <file dir="C:\projects\CodeObfuscation\StringObfuscation\bin\Release" name="StringObfuscation.exe" />
+      </assembly>
+    </includelist>
+  </stringencrypt>
+  <sos mergeruntime="true">
+    <option>version:v4</option>
+    <option>dontsendtamper</option>
+  </sos>
+  <smartobfuscation>
+    <smartobfuscationreport verbosity="all" overwrite="false" />
+  </smartobfuscation>
+</dotfuscator>

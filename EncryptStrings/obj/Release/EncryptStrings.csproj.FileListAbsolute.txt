@@ -1,0 +1,7 @@
+C:\projects\CodeObfuscation\EncryptStrings\bin\Release\EncryptStrings.exe.config
+C:\projects\CodeObfuscation\EncryptStrings\bin\Release\EncryptStrings.exe
+C:\projects\CodeObfuscation\EncryptStrings\bin\Release\EncryptStrings.pdb
+C:\projects\CodeObfuscation\EncryptStrings\bin\Release\Mono.Cecil.dll
+C:\projects\CodeObfuscation\EncryptStrings\obj\Release\EncryptStrings.exe
+C:\projects\CodeObfuscation\EncryptStrings\obj\Release\EncryptStrings.pdb
+C:\projects\CodeObfuscation\EncryptStrings\obj\Release\EncryptStrings.csprojResolveAssemblyReference.cache

@@ -1,0 +1,7 @@
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Debug\TamperPhoneHome.exe.config
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Debug\TamperPhoneHome.exe
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Debug\TamperPhoneHome.pdb
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Debug\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Debug\PreEmptive.Attributes.xml
+C:\projects\CodeObfuscation\TamperPhoneHome\obj\Debug\TamperPhoneHome.exe
+C:\projects\CodeObfuscation\TamperPhoneHome\obj\Debug\TamperPhoneHome.pdb

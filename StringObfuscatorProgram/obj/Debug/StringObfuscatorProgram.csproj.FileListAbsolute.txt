@@ -1,0 +1,9 @@
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Debug\StringObfuscatorProgram.exe.config
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Debug\StringObfuscatorProgram.exe
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Debug\StringObfuscatorProgram.pdb
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Debug\Mono.Cecil.dll
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Debug\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Debug\PreEmptive.Attributes.xml
+C:\projects\CodeObfuscation\StringObfuscatorProgram\obj\Debug\StringObfuscatorProgram.exe
+C:\projects\CodeObfuscation\StringObfuscatorProgram\obj\Debug\StringObfuscatorProgram.pdb
+C:\projects\CodeObfuscation\StringObfuscatorProgram\obj\Debug\StringObfuscatorProgram.csprojResolveAssemblyReference.cache

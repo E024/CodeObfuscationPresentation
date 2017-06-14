@@ -1,0 +1,1244 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PreEmptive.Attributes</name>
+    </assembly>
+    <members>
+        <member name="T:PreEmptive.Attributes.ApplicationAttribute">
+            <summary>
+            An instrumentation time custom attribute for assemblies. Dotfuscator translates this attribute into an attribute that is consumable by the 
+            PreEmptive Analytics runtime.  Values specified in this attribute will be sent in PreEmptive Analytics messages to identify the application.
+            </summary>
+        </member>
+        <member name="M:PreEmptive.Attributes.ApplicationAttribute.#ctor(System.String)">
+            <summary>
+            Creates an ApplicationAttribute with a unique Id.  The PreEmptive Analytics runtime will find the name and version by reflecting on the Assembly itself.
+            </summary>
+            <param name="guid">The application's unique Id as a string in GUID format.  This value should not be null.</param>
+        </member>
+        <member name="M:PreEmptive.Attributes.ApplicationAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates an ApplicationAttribute with a unique Id, name, and version.
+            </summary>
+            <param name="guid">The application's unique Id as a string in GUID format.  This value should not be null.</param>
+            <param name="name">The name of the application (if null, the assembly name is used)</param>
+            <param name="version">The version of the application (if null, the assembly version is used)</param>
+        </member>
+        <member name="M:PreEmptive.Attributes.ApplicationAttribute.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates an ApplicationAttribute with a unique Id, name, and version, and application type
+            </summary>
+            <param name="guid">The application's unique Id as a string in GUID format.  This value should not be null.</param>
+            <param name="name">The name of the application (if null, the assembly name is used)</param>
+            <param name="version">The version of the application (if null, the assembly version is used)</param>
+            <param name="applicationType">The application type of the application (if null, the assembly type is used)</param>
+        </member>
+        <member name="P:PreEmptive.Attributes.ApplicationAttribute.Guid">
+            <summary>
+            Gets the application's unique Id as a string in GUID format.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ApplicationAttribute.Name">
+            <summary>
+            Gets the application name.  A null value is allowed.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ApplicationAttribute.Version">
+            <summary>
+            Gets the application version.  A null value is allowed.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ApplicationAttribute.ApplicationType">
+            <summary>
+            Gets the application type.  A null value is allowed.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.BinaryAttribute">
+            <summary>
+            An instrumentation time custom attribute for assemblies.  Dotfuscator translates this attribute into an attribute that is consumable by the 
+            PreEmptive Analytics runtime.  Values specified in this attribute will be sent in PreEmptive Analytics messages to identify specific binaries (assemblies) that make up an application.
+            </summary>
+        </member>
+        <member name="M:PreEmptive.Attributes.BinaryAttribute.#ctor(System.String)">
+            <summary>
+            Creates a BinaryAttribute with a unique Id.
+            </summary>
+            <param name="guid">The binary's unique Id as a string in GUID format.  This value should not be null.</param>
+        </member>
+        <member name="P:PreEmptive.Attributes.BinaryAttribute.Guid">
+            <summary>
+            Gets the binary's unique Id as a string in GUID format.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.BusinessAttribute">
+            <summary>
+            An instrumentation time custom attribute for assemblies. Dotfuscator translates this attribute into an attribute that is consumable by the 
+            PreEmptive Analytics runtime.  Values specified in this attribute will be sent in PreEmptive Analytics messages to identify business information.
+            </summary>
+        </member>
+        <member name="M:PreEmptive.Attributes.BusinessAttribute.#ctor(System.String)">
+            <summary>
+            Creates a BusinessAttribute with a given CompanyKey.  
+            </summary>
+            <param name="companyKey">A token provided to each business entity. The key may not be null or empty.</param>
+        </member>
+        <member name="M:PreEmptive.Attributes.BusinessAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Creates a BusinessAttribute with a given CompanyKey and CompanyName
+            </summary>
+            <param name="companyKey">A token provided to each business entity. The key may not be null or empty.</param>
+            <param name="companyName">The company name (may be null)</param>
+        </member>
+        <member name="P:PreEmptive.Attributes.BusinessAttribute.CompanyName">
+            <summary>
+            Gets the company name.  A null value is allowed.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.BusinessAttribute.CompanyKey">
+            <summary>
+            Gets the company key. The company key is a token provided to each business entity.  
+            The key may not be null or empty.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.RuntimeCheckAttribute">
+            <summary>
+            The RuntimeCheckAttribute is the abstract base class of attributes 
+            which indicate to Dotfuscator where a Check should be injected. 
+            It defines properties common to Checks, such as Actions and 
+            Application Notification. Each particular derived class determines 
+            the kind of check that will be injected.
+            
+            For historical reasons, neither InsertTamperCheckAttribute nor InsertShelfLifeAttribute derive from this class.
+            
+            For more information, see the Custom Attribute Reference section of the Dotfuscator User's Guide.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ApplicationNotificationSinkElement">
+            <summary>
+            Indicates how to notify the application of the result of the Check, 
+            at the time that the attributed method is called.
+            
+            If this property is set, ApplicationNotificationSinkName must be set to 
+            indicate the name of the method, field, property, or argument to the attributed 
+            method that will be used to notify the application.
+            
+            If this property is set to SinkElements.Method, SinkElements.Field, 
+            SinkElements.Property, or SinkElements.Delegate, then ApplicationNotificationSinkOwner 
+            may be set as well. If it is not set, Dotfuscator will search the for the Sink on 
+            the type defining the attributed method.
+            
+            If this property is set to SinkElements.DefaultAction, Dotfuscator will error during processing, 
+            as that value is not defined for Checks that derive from this class.
+            
+            If this property is not set, or is set to None, Dotfuscator will not generate code 
+            that notifies the application of the check's result.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ApplicationNotificationSinkName">
+            <summary>
+            The name of the method, field, property, or argument to the attributed method 
+            that will be used to notify the application of the result of the runtime check, 
+            at the time that the attributed method is called.
+            
+            If this property is set, ApplicationNotificationSinkElement is required to be set as well.
+            
+            If this property is not set, Dotfuscator will not generate code that
+            notifies the application of the check's result.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ApplicationNotificationSinkOwner">
+            <summary>
+            Indicates the type that defines the method, field, property, or delegate 
+            specified by ApplicationNotificationSinkName.
+            
+            If it is not set, Dotfuscator will search for the Sink on the type 
+            defining the attributed method.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.Action">
+            <summary>
+            Indicates what predefined Action the application should take in the event of a runtime check 
+            resulting in a true value (e.g., when a debugging check detects the application is being debugged).
+            
+            If an ApplicationNotificationSinkElement is also specified, the Sink will be called before 
+            this predefined Action is taken.
+            
+            By default, this is set to CheckAction.None, which performs no action.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ActionProbability">
+            <summary>
+            Indicates the probability of the specified Action occurring if the Check results in a true value. 
+            It should be a decimal number between 0.00 (never take action) and 1.00 (always take action).
+            
+            For example, a value of 0.50 indicates a 50% chance of the Action executing, 
+            while a value of 0.83 would indicate a 83% chance of it executing.
+            
+            By default, this is set to 1.00 (i.e., the Action always occurs if the Check detects its condition).
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the debugging check method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the debugging check method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.RuntimeCheckAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.DebuggingCheckAttribute">
+            <summary>
+            The DebuggingCheckAttribute is an instrumentation-time attribute for methods. 
+            Dotfuscator will insert debugger checking code into any method with this attribute. 
+            At runtime, the tamper checking code can invoke custom code in your application or invoke 
+            predefined code actions that do things such as simply exiting the application, 
+            hanging the application, or throwing an exception.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            
+            For more information, see the Custom Attribute Reference section of the Dotfuscator User's Guide.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.FeatureEventTypes">
+            <summary>
+            Defines what type of feature event this is.
+            
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.FeatureEventTypes.Tick">
+            <summary>
+            Defines a one time feature event.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.FeatureEventTypes.Start">
+            <summary>
+            Defines the start of a feature event
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.FeatureEventTypes.Stop">
+            <summary>
+            Defines the end of an already started feature event.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.FeatureAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.FeatureAvailableSinkName">
+            <summary>
+            The name of the static property, static field, or static method to set or call when a tamper is detected.  
+            If this property is set, FeatureAvailableSinkElement is required to be set as well. 
+            If this property is not set, Dotfuscator will not generate code that notifies the application if the feature is available.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.FeatureAvailableSinkElement">
+            <summary>
+            Indicates how to notify the application if the feature is available, at the time that the attributed method is called 
+            (e.g. a writable static, boolean field, settable static Boolean property, or a static void( boolean ) method to call). 
+            To use this property, FeatureAvailableSinkName must also be set. If FeatureAvailableSinkElement is a 
+            static field or property, FeatureAvailableSinkOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.FeatureAvailableSinkOwner">
+            <summary>
+            FeatureAvailableSinkOwner indicates the name of the type that defines the FeatureAvailableSink method, field, or property. 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ActivationStatusSinkName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ActivationStatusSinkElement">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ActivationStatusSinkOwner">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.UsageIncrementSourceName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.UsageIncrementSourceElement">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.UsageIncrementSourceOwner">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the feature method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the feature method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.FeatureAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.SetupAttribute">
+            <summary>
+            An instrumentation time attribute for methods.  Dotfuscator will insert PreEmptive Analytics initialization code into any method with this attribute.  There must be one or more  
+            methods with this attribute in an assembly or application that uses PreEmptive Analytics instrumentation.  
+            
+            At runtime, the initialization code will send a PreEmptive Analytics application start message when this method is called.
+            
+            The developer can optionally specify information about an application instance Id and an "opt in" flag.  Dotfuscator will use this information when generating the initialization code.
+            
+            The application instance Id (such as a serial number) is typically unique to a particular instance of the application and is determined by the application at runtime.  The developer can
+            make the instance Id available at runtime to the PreEmptive Analytics initialization code by specifying values for the InstanceIdSourceName, InstanceIdSourceElement, 
+            and (optionally) InstanceIdSourceOwner properties.
+            
+            The Opt-In flag is another runtime determined value that indicates if the user of the application has given permission for the application to send PreEmptive Analytics information.  The developer can
+            make the opt-in flag available at runtime to the PreEmptive Analytics initialization code by specifying values for the OptInSourceName, OptInSourceElement, 
+            and (optionally) OptInSourceOwner properties.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OmitPII">
+            <summary>
+            Omit personally identifiable information from data reported. The default value is false.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.InstanceIdSourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the instance Id at runtime, at the time that the setup method is called.
+            If this property is set, InstanceIdSourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends an instance Id with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.InstanceIdSourceElement">
+            <summary>
+            Indicates how to access the instance Id at runtime, at the time that the setup method is called (e.g. a static field, static property, or method parameter).
+            To use this property, InstanceIdSourceName must also be set.  If InstanceIdSourceElement is a static field or property, InstanceIdSourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.InstanceIdSourceOwner">
+            <summary>
+            If the InstanceIdSourceElement is a static field or static property, InstanceIdSourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OptInSourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the opt-in flag at runtime, at the time that the setup method is called.
+            If this property is set, OptInSourceElement is required to be set as well.  If this property is not set, Dotfuscator will generate code that sends PreEmptive Analytics messages all the time.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OptInSourceElement">
+            <summary>
+            Indicates how to access the opt-in flag at runtime, at the time that the setup method is called (e.g. a static field, static property, or method parameter).
+            To use this property, OptInSourceName must also be set.  If OptInSourceElement is a static field or property, OptInSourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OptInSourceOwner">
+            <summary>
+            If the OptInSourceElement is a static field or static property, OptInSourceOwner indicates the name of the type that defines the field or property.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the setup method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the setup method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OfflineStateSourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the offline status at runtime, at the time that the setup method is called.
+            If this property is set, OfflineStateSourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that stores 
+            PreEmptive Analytics messages when a network connection is unavailable.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OfflineStateSourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the setup method is called (e.g. a static field, static property, or method parameter).
+            If this property is set to None, Dotfuscator will not generate code that stores PreEmptive Analytics messages when a network connection is unavailable. If this property
+            is set to Default, Dotfuscator will generate code that determines at runtime whether a network connection is available and will store PreEmptive Analytics messages if it
+            is not. If this property is set to any other value, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property,
+            ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OfflineStateSourceOwner">
+            <summary>
+            If the OfflineStateSourceElement is a static method, field, or property, OfflineStateSourceOwner indicates the name of the type that defines that member. 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OfflineStorageResultSinkName">
+            <summary>
+            The name of the static property, static field, or static method to set or call when a PreEmptive Analytics offline storage operation completes.
+            If this property is set, OfflineStorageResultSinkElement is required to be set as well.  If this property is not set, Dotfuscator will not perform any action upon the
+            completion of an offline storage operation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OfflineStorageResultSinkElement">
+            <summary>
+            Indicates how to notify the application when a PreEmptive Analytics offline storage operation completes (e.g. a writable static, boolean field, settable static Boolean
+            property, or a static void( boolean ) method to call). If this property is set to None, Dotfuscator will not perform any action upon the completion of an offline storage
+            operation. If this property is set to Default, Dotfuscator will generate code that exits the application if the offline storage operation fails. If this property is set
+            to any other value, OfflineStorageResultSinkName must also be set. If OfflineStorageResultSinkName is a static field or property, OfflineStorageResultSinkOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.OfflineStorageResultSinkOwner">
+            <summary>
+            If the OfflineStorageResultSinkElement is a static method, field, or property, OfflineStorageResultSinkOwner indicates the name of the type that defines that member.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.UseSSL">
+            <summary>
+            Use HTTPS protocol when sending PreEmptive Analytics messages to a PreEmptive Analytics Endpoint.  Default value is true.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.CustomEndpoint">
+            <summary>
+            Defines a custom http SOAP endpoint for PreEmptive Analytics messages to be sent to.  Default value is blank.
+            This property is deprecated. StaticEndpoint should be used in the future
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.StaticEndpoint">
+            <summary>
+            Defines a custom HTTP SOAP endpoint for analytics messages to be sent to.  Default value is so-s.info/Endpoint
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.EndpointSourceElement">
+            <summary>
+            Indicates how or if to read the endpoint URL for Setup from an element at runtime.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.EndpointSourceName">
+            <summary>
+            The name of the element from which to read the endpoint URL at runtime.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SetupAttribute.EndpointSourceOwner">
+            <summary>
+            If the EndpointSourceElement is a static method, property, or field, this indicates the name of the type that defines the member. Otherwise it can be left empty or null.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.TeardownAttribute">
+            <summary>
+            An instrumentation time attribute for methods.  Dotfuscator will insert PreEmptive Analytics cleanup code into any method with this attribute.  There must be one or more  
+            methods with this attribute in an assembly or application that uses PreEmptive Analytics instrumentation.  
+            
+            At runtime, the cleanup code will send a PreEmptive Analytics application stop message when this method is called.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.TeardownAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the teardown method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.TeardownAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the teardown method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.TeardownAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.TeardownAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.SourceElements">
+            <summary>
+            Possible sources for data meant to be consumed by PreEmptive Analytics generated code.  Examples include the application instance Id and opt-in flag specified in the SetupAttribute.
+            
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SourceElements.None">
+            <summary>
+            No source element.  This is the default value.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SourceElements.MethodArgument">
+            <summary>
+            The source element is a method argument.
+            </summary>
+            
+        </member>
+        <member name="F:PreEmptive.Attributes.SourceElements.Field">
+            <summary>
+            The source element is a field.
+            </summary>
+            
+        </member>
+        <member name="F:PreEmptive.Attributes.SourceElements.Property">
+            <summary>
+            The source element is a property.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SourceElements.Method">
+            <summary>
+            The source element is a method to be called.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SourceElements.DefaultAction">
+            <summary>
+            The default action should be executed. The default action will vary depending on the attribute property in question, see the Dotfuscator User's Guide for more information.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.EndpointSourceElements">
+            <summary>
+            Possible endpoint sources for data meant to be consumed by PreEmptive Analytics generated code.  Examples include the application instance Id and opt-in flag specified in the SetupAttribute.
+            
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.None">
+            <summary>
+            No source element.  This is the default value.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.MethodArgument">
+            <summary>
+            The source element is a method argument.
+            </summary>
+            
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.Field">
+            <summary>
+            The source element is a field.
+            </summary>
+            
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.Property">
+            <summary>
+            The source element is a property.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.Method">
+            <summary>
+            The source element is a method to be called.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.ApplicationSetting">
+            <summary>
+            The source element is obtained from an application settings configuration file.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.EndpointSourceElements.DefaultAction">
+            <summary>
+            The default action should be executed. The default action will vary depending on the attribute property in question, see the Dotfuscator User's Guide for more information.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.SinkElements">
+            <summary>
+            Possible sinks for notifications from PreEmptive Analytics generated code. Examples include the application tamper notification specified in the InsertTamperCheckAttribute.
+            
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.None">
+            <summary>
+            No sink element.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.Method">
+            <summary>
+            The sink element that is a method to be called.
+            </summary>
+            
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.Field">
+            <summary>
+            The sink element is a field to be set.
+            </summary>
+            
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.Property">
+            <summary>
+            The sink element is a property to be set.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.MethodArgument">
+            <summary>
+            The sink element is a method argument that specifies a delegate to invoke.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.Delegate">
+            <summary>
+            The sink element is a delegate that should be invoked.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.SinkElements.DefaultAction">
+            <summary>
+            The default action should be executed. The default action will vary depending on the attribute property in question, see the Dotfuscator User's Guide for more information.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.CheckAction">
+            <summary>
+            Possible pre-defined actions for Dotfuscator-generated code to take if a runtime check conition (such as tamper or debug) is detected.
+            It is used in InsertRuntimeCheckAttribute (and its concrete derivations including InsertTamperCheckAttribute).
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.CheckAction.None">
+            <summary>
+            No pre-defined action will be taken if the runtime check behavior is detected.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.CheckAction.Exit">
+            <summary>
+            The application will immediately exit if the runtime check behavior is detected.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.CheckAction.Exception">
+            <summary>
+            The application will throw an exception if the runtime check behavior is detected.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.CheckAction.Hang">
+            <summary>
+            The current application thread will hang if the runtime check behavior is detected.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.InsertTamperCheckAttribute">
+            <summary>
+            
+            An instrumentation time attribute for methods.  Dotfuscator will insert PreEmptive Analytics tamper checking code into any method with this attribute.
+            
+            At runtime, the tamper checking code will send a PreEmptive Analytics tamper message if the application integrity checks fail.
+            
+            Using the ApplicationNotification properties, the developer can optionally specify a way for the tamper detection code to tell the application that a tamper has been detected.  
+            
+            Do not put this attribute on the same method containing the Setup Attribute.  
+            Methods with this attribute must be executed after the method containing the Setup Attribute.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ApplicationNotificationSinkName">
+            <summary>
+            The name of the static property, static field, or static method to set or call when a tamper is detected.  
+            If this property is set, ApplicationNotificationSinkElement is required to be set as well. 
+            If this property is not set, Dotfuscator will not generate code that notifies the application of a tamper.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ApplicationNotificationSinkElement">
+            <summary>
+            Indicates how to notify the application in the event of a tamper detection, at the time that the attributed method is called 
+            (e.g. a writable static, boolean field, settable static Boolean property, or a static void( boolean ) method to call). 
+            To use this property, ApplicationNotificationSinkName must also be set. If ApplicationNotificationSinkElement is a 
+            static field or property, ApplicationNotificationSinkOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ApplicationNotificationSinkOwner">
+            <summary>
+            ApplicationNotificationSinkOwner indicates the name of the type that defines the ApplicationNotificationSink method, field, or property. 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the tamper method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the tamper method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.Action">
+            <summary>
+            Indicates what predefined action the application should take in the event of a tamper detection, at the time that the 
+            attributed method is called (e.g. exit, hang, throw an exception, do nothing).
+            
+            If an ApplicationNotificationSinkElement is also specified, it will be called before this predefined action is taken.
+            
+            By default, this is set to CheckAction.None.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertTamperCheckAttribute.ActionProbability">
+            <summary>
+            Indicates the probability of the specified CheckAction occurring. It should be a decimal number between 0.00 (never) and 1.00 (always).
+            For example, a value of 0.50 indicates a 50% chance of the CheckAction executing, while a value of 0.83 would indicate a 83% chance of it executing.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.SystemProfileAttribute">
+            <summary>
+            An instrumentation time attribute for methods. Dotfuscator will insert code to generate and send a PreEmptive Analytics Profile Message into any method with this attribute.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            
+            This attribute has no properties outside the optional ExtendedKeysSource properties that all PreEmptive Analytics attributes have.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SystemProfileAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the system profile method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SystemProfileAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the system profile method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SystemProfileAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.SystemProfileAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.PerformanceProbeAttribute">
+            <summary>
+            An instrumentation time attribute for methods. Dotfuscator will insert code to generate and send a PreEmptive Analytics PerformanceProbe Message into any method with this attribute.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.PerformanceProbeAttribute.Name">
+            <summary>
+            The name of this instance of the PerformanceProbeAttribute.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.PerformanceProbeAttribute.InjectionPoint">
+            <summary>
+            Where in the method to inject the performance probing code.
+            If this property is not set, Dotfuscator will inject the code at the beginning of the method.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.PerformanceProbeAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime, at the time that the performance probe method is called.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.PerformanceProbeAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime, at the time that the performance probe method is called (e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.PerformanceProbeAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.PerformanceProbeAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.InjectionPoints">
+            <summary>
+            Places in a method to inject generated code.
+            
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.InjectionPoints.Beginning">
+            <summary>
+            Inject generated code at the beginning of the method.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.InjectionPoints.End">
+            <summary>
+            Inject generated code at the end of the method.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.InsertShelfLifeAttribute">
+            <summary>
+            
+            An instrumentation time attribute for methods.  Dotfuscator will insert shelf life checking code into any method with this attribute.
+            
+            At runtime, the shelf life checking code will send a shelf life expiration/warning message.
+            
+            Using the Notification properties, the developer can optionally specify a way for the application to issue expiration/warning message.  
+            
+            Do not put this attribute on the same method containing the Setup Attribute.  
+            Methods with this attribute must be executed after the method containing the Setup Attribute.
+            
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ActivationKeyFile">
+            <summary>
+            The Shelf Life Activate Key (SLAK) is be issued by PreEmptive and is required to use Shelf Life functionality.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.PrivateKeyFile">
+            <summary>
+            Optional user-supplied private key file.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.PrivateKeyFilePassword">
+            <summary>
+            Password for user-supplied private key file.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExpirationDate">
+            <summary>
+            Expiration date.  
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.WarningDate">
+            <summary>
+            Warning date.  
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.WarningNotificationSinkName">
+            <summary>
+            The name of the static property, static field, or static method to set or call.  
+            If this property is set, WarningNotificationSinkElement is required to be set as well. 
+            If this property is not set, Dotfuscator will not generate code that notifies the application.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.WarningNotificationSinkElement">
+            <summary>
+            Indicates how to notify the application in the event of a shelf life warning, at the time that the attributed method is called 
+            (e.g. a writable static, boolean field, settable static Boolean property, or a static void( boolean ) method to call). 
+            To use this property, WarningNotificationSinkName must also be set. If WarningNotificationSinkElement is a 
+            static field or property, WarningNotificationSinkOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.WarningNotificationSinkOwner">
+            <summary>
+            WarningNotificationSinkOwner indicates the name of the type that defines the WarningNotificationSink method, field, or property. 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExpirationNotificationSinkName">
+            <summary>
+            The name of the static property, static field, or static method to set or call.  
+            If this property is set, ExpirationNotificationSinkElement is required to be set as well. 
+            If this property is not set, Dotfuscator will not generate code that notifies the application.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExpirationNotificationSinkElement">
+            <summary>
+            Indicates how to notify the application in the event of a shelf life expiration, at the time that the attributed method is called 
+            (e.g. a writable static, boolean field, settable static Boolean property, or a static void( boolean ) method to call). 
+            To use this property, ExpirationNotificationSinkName must also be set. If ExpirationNotificationSinkElement is a 
+            static field or property, ExpirationNotificationSinkOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExpirationNotificationSinkOwner">
+            <summary>
+            ExpirationNotificationSinkOwner indicates the name of the type that defines the ExpirationNotificationSink method, field, or property. 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime(e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ShelfLifeTokenSourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain a Shelf Life Token string at runtime.
+            If this property is set, ShelfLifeTokenSourceElement is required to be set as well.  If this property is not set, Dotfuscator will
+            inject a token string generated from the Shelf Life Activation Key at Dotfuscation time.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ShelfLifeTokenSourceElement">
+            <summary>
+            Indicates how to access the ShelfLifeTokenSource at runtime(e.g. a static field, static property, or method parameter).
+            To use this property, ShelfLifeTokenSourceName must also be set.  If ShelfLifeTokenSourceElement is a static field or property, ShelfLifeTokenSourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertShelfLifeAttribute.ShelfLifeTokenSourceOwner">
+            <summary>
+            If the ShelfLifeTokenSourceElement is a static field or static property, ShelfLifeTokenSourceOwner indicates the name of the type that defines the field or property.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.InsertSignOfLifeAttribute">
+            <summary>
+            An instrumentation time attribute for methods.  Dotfuscator will insert sign of life checking code into any method with this attribute.
+            At runtime, the sign of life checking code will send a message with Shelf Life ID in the extended keys.
+            Do not put this attribute on the same method containing the Setup Attribute.  
+            Methods with this attribute must be executed after the method containing the Setup Attribute.
+            Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertSignOfLifeAttribute.ActivationKeyFile">
+            <summary>
+            The Shelf Life Activate Key (SLAK) is be issued by PreEmptive and is required to use Shelf Life functionality.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertSignOfLifeAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key dictionary at runtime.
+            If this property is set, ExtendedKeySourceElement is required to be set as well.  If this property is not set, Dotfuscator will not generate code that sends extended keys with 
+            PreEmptive Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertSignOfLifeAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime(e.g. a static field, static property, or method parameter).
+            To use this property, ExtendedKeySourceName must also be set.  If ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertSignOfLifeAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the name of the type that defines the field or property 
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.InsertSignOfLifeAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended keys.  Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides]  : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )"
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from "*", because if the developer adds arguments to this method in the future, they will not be sent in this case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name “KeyName1”, bar’s value with the key name “KeyName2”, and baz’s value with the key name “baz”.
+            - "foo" : Send only foo using “foo” as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.ExceptionTrackAttribute">
+            <summary>
+            An instrumentation time attribute for methods and assemblies. Dotfuscator will insert exception tracking and
+            response code into any method or assembly with this attribute. At runtime, the exception tracking code will
+            send an exception report to PreEmptive Analytics when an exception (unhandled, caught, or thrown - as
+            configured) occurs, and the exception response code will either take no action, swallow the exception (for
+            unhandled exceptions only), or take a user-defined custom action. Do not put this attribute on the same method
+            containing the Setup Attribute. Methods with this attribute must be executed after the method containing the
+            Setup Attribute. Dotfuscator will remove this custom attribute from the metadata after instrumentation.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ReportInfoSourceName">
+            <summary>
+            The name of the property, field, method, or method parameter that will contain the user-specified report
+            information dictionary at runtime, at the time that the attributed method is called. If using
+            assembly-level exception tracking, this property, field, or method must be public, static, and writable. If
+            this property is set, ReportInfoSourceElement is required to be set as well. If this property is not set,
+            Dotfuscator will not generate code that obtains user-specified exception report information.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ReportInfoSourceElement">
+            <summary>
+            Indicates how to access the user-specified report information dictionary at runtime, at the time an
+            exception is detected. The default value is None. If this property is set to None, Dotfuscator will not
+            generate code that obtains user-specified exception report information. If this property is set to DefaultAction,
+            Dotfuscator will generate code that displays a built-in dialog that shows the exception message and prompts
+            the user for his or her e-mail address, comments, and consent to send the report. If this property is set
+            to any other value, ReportInfoSourceName must also be set. If using method-level exception tracking and
+            ReportInfoSourceElement is a field, method, or property, ReportInfoSourceOwner must also be set unless the
+            field, method or property is defined on the same class as the attributed method. If using assembly-level
+            exception tracking, ReportInfoSourceOwner must always also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ReportInfoSourceOwner">
+            <summary>
+            If the ReportInfoSourceElement is a field, method or property, ReportInfoSourceOwner indicates the name of
+            the type that defines the field, method or property. If not set, the named source element is searched for
+            on the attributed method’s type. ReportInfoSourceOwner must be set for assembly-level exception tracking.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionNotificationSinkName">
+            <summary>
+            The name of the property, field, method to set or call when an exception of the configured type is
+            detected. If using assembly-level exception tracking, this property, field, or method must be public,
+            static, and writable. If this property is set, ExpirationNotificationSinkElement is required to be set as
+            well. If this property is not set, Dotfuscator will not inject any code to react to the detected exception.
+            If the SendReport property is set to true, code to send an exception report will still be injected
+            regardless of whether this property is set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionNotificationSinkElement">
+            <summary>
+            Indicates whether and how to take action upon detection of an exception of the configured ExceptionType. A
+            sink element may be a writable field or settable property of type Exception, a void( System.Exception )
+            method to call, or a Delegate to invoke. To use this property, ExceptionNotificationSinkName must also be
+            set. If using method-level exception tracking and ExceptionNotificationSinkElement is a field, method, or
+            property, ExceptionNotificationSinkOwner must also be set unless the field, method or property is defined
+            on the same class as the attributed method. If using assembly-level exception tracking,
+            ExceptionNotificationSinkOwner must always also be set. If the SinkElement is set to None or DefaultAction,
+            Dotfuscator will not inject any code to react to the detected exception. If the SendReport property is set
+            to true, code to send an exception report will still be injected regardless of whether this property has
+            been set to None or DefaultAction.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionNotificationSinkOwner">
+            <summary>
+            If the ExceptionNotificationSinkElement is a field, method or property, ExceptionNotificationSinkOwner
+            indicates the name of the type that defines the field, method or property. If not set, the named source
+            element is searched for on the attributed method’s type. ExceptionNotificationSinkOwner must be set for
+            assembly-level exception tracking.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionSourceElement">
+            <summary>
+            Indicates how to access the exception object at runtime. The default value is DefaultAction. If this property is 
+            set to DefaultAction or None, Dotfuscator will generate code that detects the exception object based on the current 
+            execution context. If this property is set to any other value, ExceptionSourceName must also be set. 
+            If using method-level exception tracking and ExceptionSourceElement is a field, method, or property, ExceptionSourceOwner
+            must also be set unless the field, method or property is defined on the same class as the attributed method. If using 
+            assembly-level exception tracking, this property is ignored.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionSourceName">
+            <summary>
+            The name of the property, field, method, or method parameter that will contain the exception object at runtime, 
+            at the time that the attributed method is called.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionSourceOwner">
+            <summary>
+            If the ExceptionSourceElement is a field, method or property, ExceptionSourceOwner indicates the name of the type that defines 
+            the field, method or property. If not set, the named source element is searched for on the attributed method’s type.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.SendReport">
+            <summary>
+            Whether or not to send an exception report when an exception is tracked. The default value is true. If this
+            property is set to false, the ReportInfoSource properties will be ignored. A custom action (via the
+            ExceptionNotifiationSink properties) will always be taken if one has been configured, regardless of the
+            value of this property.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.PrivacyPolicyUri">
+            <summary>
+            URL to a privacy policy covering the transmission of exception reports. This property is only used if the
+            ReportInfoSourceElement is set to DefaultAction. In this case, a link to the PrivacyPolicyUri is included
+            on the built-in exception report dialog. If this property is not set, the exception report dialog will not
+            contain a privacy policy link.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExceptionType">
+            <summary>
+            The type of exceptions to track with this ExceptionTrackAttribute (caught, thrown, or unhandled). The
+            default is Unhandled.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExtendedKeySourceName">
+            <summary>
+            The name of the static property, static field, or method parameter that will contain the extended key
+            dictionary at runtime. If this property is set, ExtendedKeySourceElement is required to be set as well. If
+            this property is not set, Dotfuscator will not generate code that sends extended keys with PreEmptive
+            Analytics messages.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExtendedKeySourceElement">
+            <summary>
+            Indicates how to access the extended key dictionary at runtime(e.g. a static field, static property, or
+            method parameter). To use this property, ExtendedKeySourceName must also be set. If
+            ExtendedKeySourceElement is a static field or property, ExtendedKeySourceOwner must also be set.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExtendedKeySourceOwner">
+            <summary>
+            If the ExtendedKeySourceElement is a static field or static property, ExtendedKeySourceOwner indicates the
+            name of the type that defines the field or property.
+            </summary>
+        </member>
+        <member name="P:PreEmptive.Attributes.ExceptionTrackAttribute.ExtendedKeyMethodArguments">
+            <summary>
+            A string that selects method arguments (defined for the attributed method) that should be sent as extended
+            keys. Selection syntax is as follows:
+            
+            - "*" : selects all method arguments
+            - "" (empty string) : selects no arguments
+            - "[comma delimited list of method arguments with optional key name overrides] : selects specific arguments
+            
+            Examples from method "MyMethod( string foo, int bar, object baz )":
+            
+            - "*" : Send all method arguments, using argument names as key names.
+            - "foo,bar,baz" : Send foo, bar, and baz arguments using argument names as key names (this differs from
+              "*", because if the developer adds arguments to this method in the future, they will not be sent in this
+              case, whereas with the wildcard they would).
+            - "foo=KeyName1, bar=KeyName2, baz" : Send foo, bar and baz.  foo’s value will be sent with the key name
+              "KeyName1", bar’s value with the key name "KeyName2", and baz’s value with the key name "baz".
+            - "foo" : Send only foo using "foo" as the key name.
+            </summary>
+        </member>
+        <member name="T:PreEmptive.Attributes.ExceptionTypes">
+            <summary>
+            Types of exceptions to track.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.ExceptionTypes.Unhandled">
+            <summary>
+            Track unhandled exceptions.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.ExceptionTypes.Caught">
+            <summary>
+            Track exceptions right after they enter a 'catch' block.
+            </summary>
+        </member>
+        <member name="F:PreEmptive.Attributes.ExceptionTypes.Thrown">
+            <summary>
+            Track exceptions right before being thrown by a 'throw' statement.
+            </summary>
+        </member>
+    </members>
+</doc>

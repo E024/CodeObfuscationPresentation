@@ -1,0 +1,13 @@
+C:\projects\CodeObfuscation\StringObfuscation\AntiTampering\bin\Debug\AntiTampering.exe.config
+C:\projects\CodeObfuscation\StringObfuscation\AntiTampering\bin\Debug\AntiTampering.exe
+C:\projects\CodeObfuscation\StringObfuscation\AntiTampering\bin\Debug\AntiTampering.pdb
+C:\projects\CodeObfuscation\StringObfuscation\AntiTampering\obj\Debug\AntiTampering.exe
+C:\projects\CodeObfuscation\StringObfuscation\AntiTampering\obj\Debug\AntiTampering.pdb
+C:\projects\CodeObfuscation\AntiTampering\bin\Debug\AntiTampering.exe.config
+C:\projects\CodeObfuscation\AntiTampering\bin\Debug\AntiTampering.exe
+C:\projects\CodeObfuscation\AntiTampering\bin\Debug\AntiTampering.pdb
+C:\projects\CodeObfuscation\AntiTampering\obj\Debug\AntiTampering.exe
+C:\projects\CodeObfuscation\AntiTampering\obj\Debug\AntiTampering.pdb
+C:\projects\CodeObfuscation\AntiTampering\bin\Debug\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\AntiTampering\bin\Debug\PreEmptive.Attributes.xml
+C:\projects\CodeObfuscation\AntiTampering\obj\Debug\AntiTampering.csprojResolveAssemblyReference.cache

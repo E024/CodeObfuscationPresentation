@@ -1,0 +1,7 @@
+C:\projects\CodeObfuscation\TamperApplication\bin\Release\TamperApplication.exe.config
+C:\projects\CodeObfuscation\TamperApplication\bin\Release\TamperApplication.exe
+C:\projects\CodeObfuscation\TamperApplication\bin\Release\TamperApplication.pdb
+C:\projects\CodeObfuscation\TamperApplication\bin\Release\Mono.Cecil.dll
+C:\projects\CodeObfuscation\TamperApplication\obj\Release\TamperApplication.exe
+C:\projects\CodeObfuscation\TamperApplication\obj\Release\TamperApplication.pdb
+C:\projects\CodeObfuscation\TamperApplication\obj\Release\TamperApplication.csprojResolveAssemblyReference.cache

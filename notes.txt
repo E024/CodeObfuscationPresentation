@@ -1,0 +1,6 @@
+
+.loadby sos clr 
+.foreach (objStatsVariable {!dumpheap -type System.String -short}) {.printf "\n%mu",${objStatsVariable} + c }
+
+RenameMethod_Issue
+

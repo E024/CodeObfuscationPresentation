@@ -1,0 +1,6 @@
+C:\projects\CodeObfuscation\EncryptStrings\bin\Debug\EncryptStrings.exe.config
+C:\projects\CodeObfuscation\EncryptStrings\bin\Debug\EncryptStrings.exe
+C:\projects\CodeObfuscation\EncryptStrings\bin\Debug\EncryptStrings.pdb
+C:\projects\CodeObfuscation\EncryptStrings\bin\Debug\Mono.Cecil.dll
+C:\projects\CodeObfuscation\EncryptStrings\obj\Debug\EncryptStrings.exe
+C:\projects\CodeObfuscation\EncryptStrings\obj\Debug\EncryptStrings.pdb

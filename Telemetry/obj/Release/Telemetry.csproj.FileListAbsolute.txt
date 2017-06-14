@@ -1,0 +1,5 @@
+C:\projects\CodeObfuscation\Telemetry\bin\Release\Telemetry.exe.config
+C:\projects\CodeObfuscation\Telemetry\bin\Release\Telemetry.exe
+C:\projects\CodeObfuscation\Telemetry\bin\Release\Telemetry.pdb
+C:\projects\CodeObfuscation\Telemetry\obj\Release\Telemetry.exe
+C:\projects\CodeObfuscation\Telemetry\obj\Release\Telemetry.pdb

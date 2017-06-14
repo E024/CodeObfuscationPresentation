@@ -1,0 +1,5 @@
+C:\projects\CodeObfuscation\ControlFlow\bin\Release\ControlFlow.exe.config
+C:\projects\CodeObfuscation\ControlFlow\bin\Release\ControlFlow.exe
+C:\projects\CodeObfuscation\ControlFlow\bin\Release\ControlFlow.pdb
+C:\projects\CodeObfuscation\ControlFlow\obj\Release\ControlFlow.exe
+C:\projects\CodeObfuscation\ControlFlow\obj\Release\ControlFlow.pdb

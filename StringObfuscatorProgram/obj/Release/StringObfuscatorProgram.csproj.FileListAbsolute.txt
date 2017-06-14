@@ -1,0 +1,8 @@
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Release\StringObfuscatorProgram.exe.config
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Release\StringObfuscatorProgram.exe
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Release\StringObfuscatorProgram.pdb
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Release\Mono.Cecil.dll
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Release\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\StringObfuscatorProgram\bin\Release\PreEmptive.Attributes.xml
+C:\projects\CodeObfuscation\StringObfuscatorProgram\obj\Release\StringObfuscatorProgram.exe
+C:\projects\CodeObfuscation\StringObfuscatorProgram\obj\Release\StringObfuscatorProgram.pdb

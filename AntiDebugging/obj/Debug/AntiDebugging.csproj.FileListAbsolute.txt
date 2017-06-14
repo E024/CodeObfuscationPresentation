@@ -1,0 +1,13 @@
+C:\projects\CodeObfuscation\StringObfuscation\AntiDebugging\bin\Debug\AntiDebugging.exe.config
+C:\projects\CodeObfuscation\StringObfuscation\AntiDebugging\bin\Debug\AntiDebugging.exe
+C:\projects\CodeObfuscation\StringObfuscation\AntiDebugging\bin\Debug\AntiDebugging.pdb
+C:\projects\CodeObfuscation\StringObfuscation\AntiDebugging\obj\Debug\AntiDebugging.exe
+C:\projects\CodeObfuscation\StringObfuscation\AntiDebugging\obj\Debug\AntiDebugging.pdb
+C:\projects\CodeObfuscation\AntiDebugging\bin\Debug\AntiDebugging.exe.config
+C:\projects\CodeObfuscation\AntiDebugging\bin\Debug\AntiDebugging.exe
+C:\projects\CodeObfuscation\AntiDebugging\bin\Debug\AntiDebugging.pdb
+C:\projects\CodeObfuscation\AntiDebugging\obj\Debug\AntiDebugging.exe
+C:\projects\CodeObfuscation\AntiDebugging\obj\Debug\AntiDebugging.pdb
+C:\projects\CodeObfuscation\AntiDebugging\bin\Debug\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\AntiDebugging\bin\Debug\PreEmptive.Attributes.xml
+C:\projects\CodeObfuscation\AntiDebugging\obj\Debug\AntiDebugging.csprojResolveAssemblyReference.cache

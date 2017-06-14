@@ -1,0 +1,6 @@
+C:\projects\CodeObfuscation\StringObfuscation\bin\Release\StringObfuscation.exe.config
+C:\projects\CodeObfuscation\StringObfuscation\bin\Release\StringObfuscation.exe
+C:\projects\CodeObfuscation\StringObfuscation\bin\Release\StringObfuscation.pdb
+C:\projects\CodeObfuscation\StringObfuscation\obj\Release\StringObfuscation.exe
+C:\projects\CodeObfuscation\StringObfuscation\obj\Release\StringObfuscation.pdb
+C:\projects\CodeObfuscation\StringObfuscation\obj\Release\StringObfuscation.csprojResolveAssemblyReference.cache

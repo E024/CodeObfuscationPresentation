@@ -1,0 +1,11 @@
+C:\projects\CodeObfuscation\StringObfuscation\StringObfuscation\bin\Debug\StringObfuscation.exe.config
+C:\projects\CodeObfuscation\StringObfuscation\StringObfuscation\bin\Debug\StringObfuscation.exe
+C:\projects\CodeObfuscation\StringObfuscation\StringObfuscation\bin\Debug\StringObfuscation.pdb
+C:\projects\CodeObfuscation\StringObfuscation\StringObfuscation\obj\Debug\StringObfuscation.csprojResolveAssemblyReference.cache
+C:\projects\CodeObfuscation\StringObfuscation\StringObfuscation\obj\Debug\StringObfuscation.exe
+C:\projects\CodeObfuscation\StringObfuscation\StringObfuscation\obj\Debug\StringObfuscation.pdb
+C:\projects\CodeObfuscation\StringObfuscation\bin\Debug\StringObfuscation.exe.config
+C:\projects\CodeObfuscation\StringObfuscation\obj\Debug\StringObfuscation.exe
+C:\projects\CodeObfuscation\StringObfuscation\obj\Debug\StringObfuscation.pdb
+C:\projects\CodeObfuscation\StringObfuscation\bin\Debug\StringObfuscation.exe
+C:\projects\CodeObfuscation\StringObfuscation\bin\Debug\StringObfuscation.pdb

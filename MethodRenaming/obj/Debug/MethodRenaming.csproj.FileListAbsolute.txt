@@ -1,0 +1,12 @@
+C:\projects\CodeObfuscation\StringObfuscation\MethodRenaming\bin\Debug\MethodRenaming.exe.config
+C:\projects\CodeObfuscation\StringObfuscation\MethodRenaming\bin\Debug\MethodRenaming.exe
+C:\projects\CodeObfuscation\StringObfuscation\MethodRenaming\bin\Debug\MethodRenaming.pdb
+C:\projects\CodeObfuscation\StringObfuscation\MethodRenaming\obj\Debug\MethodRenaming.csprojResolveAssemblyReference.cache
+C:\projects\CodeObfuscation\StringObfuscation\MethodRenaming\obj\Debug\MethodRenaming.exe
+C:\projects\CodeObfuscation\StringObfuscation\MethodRenaming\obj\Debug\MethodRenaming.pdb
+C:\projects\CodeObfuscation\MethodRenaming\bin\Debug\MethodRenaming.exe.config
+C:\projects\CodeObfuscation\MethodRenaming\bin\Debug\MethodRenaming.exe
+C:\projects\CodeObfuscation\MethodRenaming\bin\Debug\MethodRenaming.pdb
+C:\projects\CodeObfuscation\MethodRenaming\obj\Debug\MethodRenaming.csprojResolveAssemblyReference.cache
+C:\projects\CodeObfuscation\MethodRenaming\obj\Debug\MethodRenaming.exe
+C:\projects\CodeObfuscation\MethodRenaming\obj\Debug\MethodRenaming.pdb

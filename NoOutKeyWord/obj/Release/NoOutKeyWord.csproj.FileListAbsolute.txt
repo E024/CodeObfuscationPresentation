@@ -1,0 +1,5 @@
+C:\projects\CodeObfuscation\NoOutKeyWord\bin\Release\NoOutKeyWord.exe.config
+C:\projects\CodeObfuscation\NoOutKeyWord\bin\Release\NoOutKeyWord.exe
+C:\projects\CodeObfuscation\NoOutKeyWord\bin\Release\NoOutKeyWord.pdb
+C:\projects\CodeObfuscation\NoOutKeyWord\obj\Release\NoOutKeyWord.exe
+C:\projects\CodeObfuscation\NoOutKeyWord\obj\Release\NoOutKeyWord.pdb

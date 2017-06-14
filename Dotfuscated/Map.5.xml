@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE dotfuscatorMap SYSTEM "http://www.preemptive.com/dotfuscator/dtd/dotfuscatorMap_v1.2.dtd">
+<dotfuscatorMap version="1.1">
+    <header>
+        <timestamp>2017-01-30T21:19:21</timestamp>
+        <product version="4.25.0.4422" user="Kevin Miller" serial="201471-391-20917B47-4B899427-D2943FC6-8992219F">Dotfuscator Professional Edition</product>
+    </header>
+    <mapping>
+        <module>
+            <name>AntiDebugging.exe</name>
+            <type>
+                <name>AntiDebugging.Program</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Run</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>ValidateUserNameAndPassword</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>string</signature>
+                        <name>ClassString</name>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+            <type>
+                <name>PreEmptive.SoS.Runtime.AnyMemoryStream</name>
+                <methodlist>
+                    <method>
+                        <signature>void(native int)</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Close</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Flush</name>
+                    </method>
+                    <method>
+                        <signature>void(int32)</signature>
+                        <name>Increment</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>int32(unsigned int8[], int32, int32)</signature>
+                        <name>Read</name>
+                    </method>
+                    <method>
+                        <signature>int32()</signature>
+                        <name>ReadByte</name>
+                    </method>
+                    <method>
+                        <signature>int64(int64, System.IO.SeekOrigin)</signature>
+                        <name>Seek</name>
+                    </method>
+                    <method>
+                        <signature>void(int64)</signature>
+                        <name>SetLength</name>
+                    </method>
+                    <method>
+                        <signature>void(unsigned int8[], int32, int32)</signature>
+                        <name>Write</name>
+                    </method>
+                    <method>
+                        <signature>bool()</signature>
+                        <name>get_CanRead</name>
+                    </method>
+                    <method>
+                        <signature>bool()</signature>
+                        <name>get_CanSeek</name>
+                    </method>
+                    <method>
+                        <signature>bool()</signature>
+                        <name>get_CanWrite</name>
+                    </method>
+                    <method>
+                        <signature>int64()</signature>
+                        <name>get_Length</name>
+                    </method>
+                    <method>
+                        <signature>int64()</signature>
+                        <name>get_Position</name>
+                    </method>
+                    <method>
+                        <signature>void(int64)</signature>
+                        <name>set_Position</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>bool</signature>
+                        <name>arch64</name>
+                        <newname>d</newname>
+                    </field>
+                    <field>
+                        <signature>bool</signature>
+                        <name>closed</name>
+                        <newname>b</newname>
+                    </field>
+                    <field>
+                        <signature>int64</signature>
+                        <name>currentPos</name>
+                        <newname>a</newname>
+                    </field>
+                    <field>
+                        <signature>native int</signature>
+                        <name>currentPtr</name>
+                        <newname>c</newname>
+                    </field>
+                </fieldlist>
+                <propertylist>
+                    <property>
+                        <signature>bool()</signature>
+                        <name>CanRead</name>
+                    </property>
+                    <property>
+                        <signature>bool()</signature>
+                        <name>CanSeek</name>
+                    </property>
+                    <property>
+                        <signature>bool()</signature>
+                        <name>CanWrite</name>
+                    </property>
+                    <property>
+                        <signature>int64()</signature>
+                        <name>Length</name>
+                    </property>
+                    <property>
+                        <signature>int64()</signature>
+                        <name>Position</name>
+                    </property>
+                </propertylist>
+                <eventlist />
+            </type>
+            <type>
+                <name>PreEmptive.SoS.Runtime.FixedLengthStream</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(System.IO.Stream, int64)</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Close</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Flush</name>
+                    </method>
+                    <method>
+                        <signature>int32(unsigned int8[], int32, int32)</signature>
+                        <name>Read</name>
+                    </method>
+                    <method>
+                        <signature>int32()</signature>
+                        <name>ReadByte</name>
+                    </method>
+                    <method>
+                        <signature>int64(int64, System.IO.SeekOrigin)</signature>
+                        <name>Seek</name>
+                    </method>
+                    <method>
+                        <signature>void(int64)</signature>
+                        <name>SetLength</name>
+                    </method>
+                    <method>
+                        <signature>void(unsigned int8[], int32, int32)</signature>
+                        <name>Write</name>
+                    </method>
+                    <method>
+                        <signature>bool()</signature>
+                        <name>get_CanRead</name>
+                    </method>
+                    <method>
+                        <signature>bool()</signature>
+                        <name>get_CanSeek</name>
+                    </method>
+                    <method>
+                        <signature>bool()</signature>
+                        <name>get_CanWrite</name>
+                    </method>
+                    <method>
+                        <signature>int64()</signature>
+                        <name>get_Length</name>
+                    </method>
+                    <method>
+                        <signature>int64()</signature>
+                        <name>get_Position</name>
+                    </method>
+                    <method>
+                        <signature>void(int64)</signature>
+                        <name>set_Position</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>int64</signature>
+                        <name>currentPos</name>
+                        <newname>c</newname>
+                    </field>
+                    <field>
+                        <signature>System.IO.Stream</signature>
+                        <name>stream</name>
+                        <newname>a</newname>
+                    </field>
+                    <field>
+                        <signature>int64</signature>
+                        <name>totalSize</name>
+                        <newname>b</newname>
+                    </field>
+                </fieldlist>
+                <propertylist>
+                    <property>
+                        <signature>bool()</signature>
+                        <name>CanRead</name>
+                    </property>
+                    <property>
+                        <signature>bool()</signature>
+                        <name>CanSeek</name>
+                    </property>
+                    <property>
+                        <signature>bool()</signature>
+                        <name>CanWrite</name>
+                    </property>
+                    <property>
+                        <signature>int64()</signature>
+                        <name>Length</name>
+                    </property>
+                    <property>
+                        <signature>int64()</signature>
+                        <name>Position</name>
+                    </property>
+                </propertylist>
+                <eventlist />
+            </type>
+            <type>
+                <name>PreEmptive.SoS.Runtime.Verifier</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.cctor</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>bool(unsigned int8[], unsigned int8[])</signature>
+                        <name>ArrayCompare</name>
+                    </method>
+                    <method>
+                        <signature>unsigned int8[](string)</signature>
+                        <name>Decode</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>void(bool)</signature>
+                        <name>DefaultNotificationHandler</name>
+                    </method>
+                    <method>
+                        <signature>native int(System.Reflection.Assembly)</signature>
+                        <name>FindMyAddress</name>
+                    </method>
+                    <method>
+                        <signature>native int(native int, int64)</signature>
+                        <name>Increment</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>bool(native int, string, string, string)</signature>
+                        <name>Verify</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>bool</signature>
+                        <name>arch64</name>
+                        <newname>a</newname>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+            <type>
+                <name>System.ApplicationException </name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>string()</signature>
+                        <name>ToString</name>
+                    </method>
+                    <method>
+                        <signature>string()</signature>
+                        <name>get_StackTrace</name>
+                    </method>
+                </methodlist>
+                <fieldlist />
+                <propertylist>
+                    <property>
+                        <signature>string()</signature>
+                        <name>StackTrace</name>
+                    </property>
+                </propertylist>
+                <eventlist />
+            </type>
+            <type>
+                <name>System.DivideByZeroException </name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>string()</signature>
+                        <name>ToString</name>
+                    </method>
+                    <method>
+                        <signature>string()</signature>
+                        <name>get_StackTrace</name>
+                    </method>
+                </methodlist>
+                <fieldlist />
+                <propertylist>
+                    <property>
+                        <signature>string()</signature>
+                        <name>StackTrace</name>
+                    </property>
+                </propertylist>
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>AntiTampering.exe</name>
+            <type>
+                <name>StringObfuscation.Program</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Run</name>
+                    </method>
+                    <method>
+                        <signature>string()</signature>
+                        <name>ShowPassphrase</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>ValidateUserNameAndPassword</name>
+                    </method>
+                    <method>
+                        <signature>string[]()</signature>
+                        <name>a</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>string</signature>
+                        <name>ClassString</name>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>ControlFlow.exe</name>
+            <type>
+                <name>StringObfuscation.Program</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Run</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>ValidateUserNameAndPassword</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>string</signature>
+                        <name>ClassString</name>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>MethodRenaming.exe</name>
+            <type>
+                <name>MethodRenaming.Program</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                    </method>
+                </methodlist>
+                <fieldlist />
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>RenameMethod_Issue.exe</name>
+            <type>
+                <name>StringObfuscation.Program</name>
+                <newname>b</newname>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>float64(System.DateTime)</signature>
+                        <name>GetRalphiesAge</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>string(bool)</signature>
+                        <name>GetSecretString</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Run</name>
+                        <newname>b</newname>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>ValidateUserNameAndPassword</name>
+                        <newname>a</newname>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>string</signature>
+                        <name>ClassString</name>
+                        <newname>a</newname>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+            <type>
+                <name>StringObfuscation.Program/&lt;&gt;c</name>
+                <newname>b/&lt;&gt;c</newname>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.cctor</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>bool(System.Reflection.MethodInfo)</signature>
+                        <name>&lt;Run&gt;b__2_0</name>
+                        <newname>a</newname>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>StringObfuscation.Program/&lt;&gt;c</signature>
+                        <name>&lt;&gt;9</name>
+                    </field>
+                    <field>
+                        <signature>System.Func`2&lt;System.Reflection.MethodInfo,bool&gt;</signature>
+                        <name>&lt;&gt;9__2_0</name>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>RenamingMethods.exe</name>
+            <type>
+                <name>StringObfuscation.Program</name>
+                <newname>a</newname>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>float64(System.DateTime)</signature>
+                        <name>GetRalphiesAge</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>string(bool)</signature>
+                        <name>GetSecretString</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                        <newname>a</newname>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Run</name>
+                        <newname>b</newname>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>ValidateUserNameAndPassword</name>
+                        <newname>a</newname>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>string</signature>
+                        <name>ClassString</name>
+                        <newname>a</newname>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>StringObfuscation.exe</name>
+            <type>
+                <name>StringObfuscation.Program</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>Run</name>
+                    </method>
+                    <method>
+                        <signature>void()</signature>
+                        <name>ValidateUserNameAndPassword</name>
+                    </method>
+                </methodlist>
+                <fieldlist>
+                    <field>
+                        <signature>string</signature>
+                        <name>ClassString</name>
+                    </field>
+                </fieldlist>
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+        <module>
+            <name>Telemetry.exe</name>
+            <type>
+                <name>Telemetry.Program</name>
+                <methodlist>
+                    <method>
+                        <signature>void()</signature>
+                        <name>.ctor</name>
+                    </method>
+                    <method>
+                        <signature>void(string[])</signature>
+                        <name>Main</name>
+                    </method>
+                </methodlist>
+                <fieldlist />
+                <propertylist />
+                <eventlist />
+            </type>
+        </module>
+    </mapping>
+    <statistics>
+        <statisticline>
+            <description>Total Classes</description>
+            <statistic>14</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Methods</description>
+            <statistic>81</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Fields</description>
+            <statistic>16</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Properties</description>
+            <statistic>12</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Events</description>
+            <statistic>0</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Classes Renamed</description>
+            <statistic>3</statistic>
+            <statistic>21.43 %</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Methods Renamed</description>
+            <statistic>14</statistic>
+            <statistic>17.28 %</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Fields Renamed</description>
+            <statistic>10</statistic>
+            <statistic>62.50 %</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Properties Renamed</description>
+            <statistic>0</statistic>
+            <statistic>0.00 %</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Total Events Renamed</description>
+            <statistic>0</statistic>
+            <statistic>0.00 %</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Methods Renamed to 'a'</description>
+            <statistic>12</statistic>
+            <statistic>14.81 %</statistic>
+        </statisticline>
+        <statisticline>
+            <description>Methods Renamed to 'b'</description>
+            <statistic>2</statistic>
+            <statistic>2.47 %</statistic>
+        </statisticline>
+    </statistics>
+</dotfuscatorMap>

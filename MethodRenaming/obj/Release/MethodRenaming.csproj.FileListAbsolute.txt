@@ -1,0 +1,5 @@
+C:\projects\CodeObfuscation\MethodRenaming\bin\Release\MethodRenaming.exe.config
+C:\projects\CodeObfuscation\MethodRenaming\bin\Release\MethodRenaming.exe
+C:\projects\CodeObfuscation\MethodRenaming\bin\Release\MethodRenaming.pdb
+C:\projects\CodeObfuscation\MethodRenaming\obj\Release\MethodRenaming.exe
+C:\projects\CodeObfuscation\MethodRenaming\obj\Release\MethodRenaming.pdb

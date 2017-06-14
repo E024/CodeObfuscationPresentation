@@ -1,0 +1,8 @@
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Release\TamperPhoneHome.exe.config
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Release\TamperPhoneHome.exe
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Release\TamperPhoneHome.pdb
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Release\PreEmptive.Attributes.dll
+C:\projects\CodeObfuscation\TamperPhoneHome\bin\Release\PreEmptive.Attributes.xml
+C:\projects\CodeObfuscation\TamperPhoneHome\obj\Release\TamperPhoneHome.exe
+C:\projects\CodeObfuscation\TamperPhoneHome\obj\Release\TamperPhoneHome.pdb
+C:\projects\CodeObfuscation\TamperPhoneHome\obj\Release\TamperPhoneHome.csprojResolveAssemblyReference.cache

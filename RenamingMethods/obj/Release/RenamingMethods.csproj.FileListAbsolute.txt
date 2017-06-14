@@ -1,0 +1,6 @@
+C:\projects\CodeObfuscation\RenamingMethods\bin\Release\RenamingMethods.exe.config
+C:\projects\CodeObfuscation\RenamingMethods\bin\Release\RenamingMethods.exe
+C:\projects\CodeObfuscation\RenamingMethods\bin\Release\RenamingMethods.pdb
+C:\projects\CodeObfuscation\RenamingMethods\obj\Release\RenamingMethods.exe
+C:\projects\CodeObfuscation\RenamingMethods\obj\Release\RenamingMethods.pdb
+C:\projects\CodeObfuscation\RenamingMethods\obj\Release\RenamingMethods.csprojResolveAssemblyReference.cache
